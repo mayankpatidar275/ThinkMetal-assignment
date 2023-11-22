@@ -14,8 +14,8 @@ const SingleTodo: React.FC<{
 
   const inputRef = useRef<HTMLInputElement>(null);
   useEffect(() => {
-    inputRef.current?.focus();
   }, [edit]);
+  inputRef.current?.focus();
 
   const handleEdit = (e: React.FormEvent, id: number) => {
     e.preventDefault();
@@ -32,7 +32,7 @@ const SingleTodo: React.FC<{
   const handleDone = (id: number) => {
     setTodos(
       todos.map((todo) =>
-        todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
       )
     );
   };
@@ -46,7 +46,7 @@ const SingleTodo: React.FC<{
           className="todos__single--text"
           ref={inputRef}
         />
-      ) : todo.isDone ? (
+      ) : todo.completed ? (
         <s className="todos__single--text">{todo.todo}</s>
       ) : (
         <span className="todos__single--text">{todo.todo}</span>
@@ -55,7 +55,7 @@ const SingleTodo: React.FC<{
         <span
           className="icon"
           onClick={() => {
-            if (!edit && !todo.isDone) {
+            if (!edit && !todo.completed) {
               setEdit(!edit);
             }
           }}
