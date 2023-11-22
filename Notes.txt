@@ -1,0 +1,61 @@
+What are the types that typescript provides ?
+JS decides the type by its own but in typescript we have to define the type of the variable.
+Example: 
+    let fruits : string[];   // array of strings.
+    let name: string = "mayank";
+    name = 5;           // gives error -> strict type checking in typescript
+Similarly we have other types like boolean, array, object, tuple...
+If no restriction needed we can give 'any' type. But no sense of using typescript if we just want to give any type.
+give unknown type instead of any.
+void return undefined but never doesnt return anything.
+
+tuple: Example
+                let role: [number, string];
+                role = [5, "apple"];
+
+object: 2 ways to define.
+                        let person: Object;         // not recommended ways because an object can have properties
+                        type Person = {
+                            name: string;
+                            age?: number;           // ? makes the age property optional.
+                        }
+                        let person: Person = {
+                            name: "mayank",
+                            age: "22",
+                        }
+
+Creating another variable which is an array of object.
+let lotsOfPersons: Person[];
+
+Now I want age variable to contain number and string both.
+-> use union.
+Example: 
+        let name : string | number;
+        age = 5;
+        age = "mayank";
+--------------------------------------------------------------
+
+FUNCTIONS - 
+
+let printName: (name: string) => never;
+---------------------------------------------------------------
+
+what is 'type'?
+It is an alias.
+
+alias are of two types: type and interface.
+
+interface Person {
+    name: string;
+    age? : number;
+}
+- It will work the same as 'type'.
+- difference is interface is easy to extend.
+
+
+
+
+
+
+
+
