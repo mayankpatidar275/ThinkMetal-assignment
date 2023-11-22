@@ -1,30 +1,33 @@
-# React + TypeScript + Vite
+# Todo App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Design Decisions
 
-Currently, two official plugins are available:
+  - Yellow and blue color combination for contrast.
+  - Smooth animations and transitions for a modern feel.
+  - Loading animation for improved user experience.
+  - Responsiveness for a consistent interface across devices.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Libraries Used
 
-## Expanding the ESLint configuration
+- **react-hot-toast:** For notifications.
+- **react-router-dom:** For seamless navigation without reloading.
+- **axios:** For efficient data fetching.
+- **Context API:** For state management.
+- **react-icons:** For diverse icon options.
+- **React hooks (useRef, useState, useEffect):** For component logic.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Features
 
-- Configure the top-level `parserOptions` property like this:
+- **Task Management:**
+  - Add, delete, edit, and update task status.
+- **Task Details:**
+  - In-depth information view.
+- **API Integration:**
+  - Fetch dummy tasks.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## Getting Started
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+1. Clone repository: `git clone <repository-url>`
+2. Install dependencies: `npm install`
+3. Run development server: `npm run dev`
+4. Open [http://localhost:5173](http://localhost:3000) in your browser.
