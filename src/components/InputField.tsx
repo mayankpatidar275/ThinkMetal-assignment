@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import toast from "react-hot-toast";
 import "./styles.css";
 
 interface Props {
@@ -14,12 +15,22 @@ const InputField = ({todo, setTodo, handleAdd}: Props) => {
   return (
     <>
         <form className='input' onSubmit={
-            (e)=>{handleAdd(e);
-            inputRef.current?.blur();}
+            (e)=>{
+                handleAdd(e);
+                toast.success('Successfully added!')
+                inputRef.current?.blur();
+            }
         }>
             
-            <input type='input' placeholder='Add a task' required className='input__box' value={todo} onChange={(e)=>setTodo(e.target.value)}/>
-            
+            <input
+                type="text"
+                placeholder="Enter a Task"
+                value={todo}
+                ref={inputRef}
+                required
+                onChange={(e) => setTodo(e.target.value)}
+                className="input__box"
+            />
             <button className='input_submit' type='submit'>
                 Add
             </button>

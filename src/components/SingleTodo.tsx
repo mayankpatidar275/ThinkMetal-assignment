@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useRef } from "react";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
+import { CgMoreO } from "react-icons/cg";
 import { MdDone } from "react-icons/md";
 import { Todo } from "../models/models";
+import { useNavigate } from "react-router-dom";
 
 const SingleTodo: React.FC<{
   todo: Todo;
@@ -37,7 +39,14 @@ const SingleTodo: React.FC<{
     );
   };
 
+  const navigate = useNavigate();
+
+  const NavigateToDetails = (id: number) => {
+    navigate(`/task/${id}`);
+  };
+
   return (
+    
     <form className="todos__single" onSubmit={(e) => handleEdit(e, todo.id)}>
       {edit ? (
         <input
@@ -67,6 +76,9 @@ const SingleTodo: React.FC<{
         </span>
         <span className="icon" onClick={() => handleDone(todo.id)}>
           <MdDone />
+        </span>
+        <span className="icon" onClick={() => NavigateToDetails(todo.id)}>
+          <CgMoreO />
         </span>
       </div>
     </form>

@@ -1,48 +1,29 @@
-import './App.css'
-import InputField from './components/InputField';
-import axios from 'axios';
-import { useState, useEffect } from 'react';
-import { Todo } from './models/models';
-import TodoList from './components/TodoList';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import Home from './pages/Home';
+import TaskDetails from './pages/TaskDetails';
+import { Toaster } from "react-hot-toast";
+import { TodoProvider } from './contexts/TodoContext';
 
-const App : React.FC = () => {
-
-  const [todo, setTodo] = useState<string>("");
-  const [todos, setTodos] = useState<Todo[]>([])
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('https://dummyjson.com/todos?limit=6');
-        setTodos(response.data.todos);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    fetchData();
-  }, []); 
-
-  const handleAdd = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (todo) {
-      setTodos([...todos, { id: Date.now(), todo, completed: false }]);
-    }
-    setTodo("");
-  };
-
+const App: React.FC = () => {
   return (
     <>
-        <div className="App">
-          <div className="heading">
-            Todo list
-          </div>
-          <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd}/>
-          <TodoList todos={todos} setTodos={setTodos}/>
-        </div>
+      <Router>
+      <Routes>
+        <Route path="/" element={<Navigate to="/home" />} />
+        <Route path="/home" element={<TodoProvider><Home /></TodoProvider>} />
+        <Route path="/task/:id" element={<TaskDetails />} />
+      </Routes>
+    </Router>
+    <Toaster 
+    containerStyle={{
+      top: 80,     // Adjust the top position as needed
+      left: 20,    // Adjust the left position as needed
+      bottom: 20,  // Adjust the bottom position as needed
+      right: 20,   // Adjust the right position as needed
+    }}
+  />
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;

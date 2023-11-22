@@ -24,13 +24,9 @@ body {
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-/* .heading span{
-  color:white;
-} */
-
 @media (max-width: 800px) {
   .heading {
     margin: 15px 0;
-    font-size: 35px;
+    font-size: 30px;
   }
 }

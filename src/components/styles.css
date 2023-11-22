@@ -49,6 +49,7 @@
     justify-content: space-evenly;
     width: 90%;
     flex-wrap: wrap;
+    /* background-color: red; */
   }
   
   .todos__single {
@@ -75,6 +76,59 @@
     font-size: 25px;
     cursor: pointer;
   }
+
+ /* TaskDetails.css */
+.task-details-container {
+  height: 100vh;
+  position: relative;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://cdn.wallpapersafari.com/48/62/6atcdu.jpg'); /* Replace with the path to your full-screen image */
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+.content-container {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-image: url("https://img.freepik.com/free-photo/crumpled-yellow-paper-background-close-up_60487-2390.jpg?size=626&ext=jpg");
+  background-size: cover;
+  background-position: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.content-container h2 {
+  color: #333;
+}
+
+.content-container p {
+  margin-top: 10px;
+}
+
+.content-container .task-details-info {
+  margin-top: 10px;
+}
+
+.content-container .task-details-info strong {
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+/* Add more styling as needed */
+
   
   @media (max-width: 1200px) {
     .todos__single {
