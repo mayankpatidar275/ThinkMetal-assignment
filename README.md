@@ -1,5 +1,9 @@
 # Todo App
 
+## Tech Stack
+
+- **Built with:** ReactJS and TypeScript.
+
 ## Design Decisions
 
   - Yellow and blue color combination for contrast.
